@@ -1,0 +1,29 @@
+
+.container{
+    width: 80%;
+    height: 50vh;
+    background-color: blanchedalmond;
+    margin: 10% auto;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 20px;
+}
+.btn{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: brown;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+.para{
+    font-size: 20px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 400;
+    padding: 0 40px;
+}
