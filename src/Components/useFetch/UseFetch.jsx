@@ -7,19 +7,34 @@ function UseFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true)
-    Axios.get(url).then((res) => {
-      setData(res.data);
-    })
-    .catch((error)=>{
-      setError(error);
-    })
-    .finally(()=>{
-      setLoading(false)
-    })
-
+    setLoading(true);
+    Axios.get(url)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [url]);
-  return {data, loading, error};
+
+  const generate = () => {
+    setLoading(true);
+    Axios.get(url)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  return { data, loading, error, generate };
 }
 
 export default UseFetch;

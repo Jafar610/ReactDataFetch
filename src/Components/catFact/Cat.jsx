@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import './Cat.css'
-
+import useFetch from '../useFetch/UseFetch'
 
 function Cat() {
-  const [catFact, setCatFact] = useState("");
-
-  const generate = () => {
-    Axios("https://meowfacts.herokuapp.com/").then((res) => {
-      setCatFact(res.data.data);
-    });
-  };
-
-  useEffect(() => {
-    generate();
-  }, []);
+  const {data, loading, error, generate} = useFetch('https://meowfacts.herokuapp.com/');
+  if(loading) return <h1>LOADING...</h1>;
+  
+  if(error) console.log(error)
 
   return (
     <>
@@ -22,7 +15,7 @@ function Cat() {
         <button onClick={generate} className="btn">
           Generate Cat Fact
         </button>
-        <p className="para">{catFact}</p>
+        <p className="para">{data?.data}</p>
       </div>
     </>
   );
